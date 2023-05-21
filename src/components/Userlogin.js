@@ -1,4 +1,5 @@
 import { Button, TextField } from '@mui/material';
+import { computeFlexColumnsWidth } from '@mui/x-data-grid/hooks/features/columns/gridColumnsUtils';
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
@@ -32,7 +33,15 @@ function Userlogin() {
         );
   }
   return (
-    <form onSubmit={handleSubmit}>
+    <form
+      onSubmit={handleSubmit}
+      style={{
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        marginTop: '10rem',
+      }}
+    >
       <TextField
         type="text"
         variant="outlined"
@@ -40,7 +49,7 @@ function Userlogin() {
         label="Name"
         onChange={e => setName(e.target.value)}
         value={name}
-        fullWidth
+        sx={{ width: '50rem' }}
       />
       <TextField
         type="email"
@@ -49,7 +58,7 @@ function Userlogin() {
         label="E-mail"
         onChange={e => setEmail(e.target.value)}
         value={email}
-        fullWidth
+        sx={{ width: '50rem' }}
       />
       <TextField
         type="number"
@@ -58,7 +67,7 @@ function Userlogin() {
         label="PhoneNumber"
         onChange={e => setPhonenumber(e.target.value)}
         value={phoneNumber}
-        fullWidth
+        sx={{ width: '50rem' }}
       />
 
       <Button variant="outlined" color="secondary" type="submit">
